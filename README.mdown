@@ -1,4 +1,4 @@
-# Xcode|Theos
+# Xcode | Theos
 
 ### Intro
 Basically this is a crazy amount of abuse of the C Preprocessor to allow you to write stuff using [Theos / Logos](http://iphonedevwiki.net/index.php/Theos) inside Xcode.
