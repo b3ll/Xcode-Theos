@@ -1,6 +1,6 @@
 //
 //  xctheos.h
-//  Xcode+Theos
+//  Xcode|Theos
 //
 //  Created by Adam Bell on 2014-03-24.
 //  Copyright (c) 2014 Adam Bell. All rights reserved.
