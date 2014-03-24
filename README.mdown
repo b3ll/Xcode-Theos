@@ -48,7 +48,7 @@ CTOR() {
 }
 ```
 
-In Xcode, you'll want to create a static library as a target, set your Tweak.xmi file as something to compile, as well as in the inspector set its file type to Objective-C++.
+In Xcode, you'll want to create a static library as a target, set your Tweak.xmi file as something to compile. In addition you'll want to (in the inspector) set its file type to Objective-C++.
 
 ### Why?
 Because Xcode. Also because I haven't written a plugin for Xcode to use theos as an external preprocessor.
