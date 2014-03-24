@@ -1,0 +1,64 @@
+# xctheos
+
+### Intro
+Basically these are a crazy amount of abuse of the C Preprocessor to allow you to write stuff using [Theos / Logos](http://iphonedevwiki.net/index.php/Theos) inside Xcode.
+
+Mostly works, but I'm pretty sure I haven't finished this yet. Sorta just fixing things as I go...
+
+### How do I xctheos?
+When compiling with theos be sure to add to your Makefile:
+```
+PROJECT_CFLAGS = -DUSE_THEOS
+```
+
+```
+#import "xctheos.h"
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+// Instead of %group stuff 
+GROUP(stuff)
+
+// Instead of %hook NSDate
+HOOK(NSDate)
+
+- (NSString *)description { 
+    return @"I'm not sure".
+}
+
+END()
+
+// OR
+
+// If you haven't declared a class yet
+HOOK_AND_DECLARE(SBApplicationController)
+
+- (NSString *)description {
+    return @"Some application controller";
+}
+
+END()
+
+END_GROUP()
+
+CTOR() {
+    INIT(stuff)
+}
+```
+
+In Xcode, you'll want to create a static library as a target, set your Tweak.xmi file as something to compile, as well as in the inspector set its file type to Objective-C++.
+
+### Why?
+Because Xcode. Also because I haven't written a plugin for Xcode to use theos as an external preprocessor.
+
+### License?
+Pretty much the BSD license, just don't repackage it and call it your own please!
+
+Also if you do make some changes, feel free to make a pull request and help make things more awesome!
+
+### Contact Info?
+Feel free to follow me on twitter: [@b3ll](https:///www.twitter.com/b3ll)!
+
+### Special Thanks
+[@DHowett](https://www.twitter.com/dhowett) for writing theos!
