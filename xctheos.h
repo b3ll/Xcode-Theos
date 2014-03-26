@@ -10,7 +10,7 @@
     #define _STRING(stuff) #stuff
     #define STRING(stuff) _STRING(stuff)
 
-    #ifdef USE_THEOS
+    #ifdef __LOGOS_H
         #define CONFIG(stuff) %config(stuff)
         #define INIT(stuff) %init(stuff)
         #define GROUP(stuff) %group stuff
