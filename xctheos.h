@@ -21,7 +21,7 @@
         #define END() %end
         #define ORIG(...) %orig(__VA_ARGS__)
         #define GET_CLASS(stuff) %c(stuff)
-        #define SUBCLASS(stuff, superclass, ...) %subclass stuff : superclass <...>
+        #define SUBCLASS(stuff, superclass) %subclass stuff : superclass
         #define END_SUBCLASS() %end
         #define CTOR() %ctor
     #else
@@ -40,7 +40,7 @@
         #define END() @end END_STFU_CLANG
         #define ORIG(...) nil
         #define GET_CLASS(stuff) objc_getClass(STRING(stuff))
-        #define SUBCLASS(stuff, superclass, ...) @interface stuff : superclass <...> @end @implementation stuff
+        #define SUBCLASS(stuff, superclass) @interface stuff : superclass @end @implementation stuff
         #define END_SUBCLASS() @end
         #define CTOR() static void inline stuff()
     #endif
