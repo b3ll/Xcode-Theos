@@ -10,6 +10,10 @@
     #define _STRING(stuff) #stuff
     #define STRING(stuff) _STRING(stuff)
 
+    #define _CONCAT(stuff, otherstuff) stuff ## otherstuff
+    #define CONCAT(stuff, otherstuff) _CONCAT(stuff, otherstuff)
+    #define UNIQUE_SUFFIX(stuff) CONCAT(stuff, __LINE__)
+
     #ifdef __LOGOS_H
         #define CONFIG(stuff) %config(stuff)
         #define INIT(stuff) %init(stuff)
@@ -20,6 +24,7 @@
         #define NEW(...)  %new
         #define END() %end
         #define ORIG(...) %orig(__VA_ARGS__)
+        #define ORIG_T(...) %orig(__VA_ARGS__)
         #define GET_CLASS(stuff) %c(stuff)
         #define SUBCLASS(stuff, superclass) %subclass stuff : superclass
         #define END_SUBCLASS() %end
@@ -34,11 +39,12 @@
         #define INIT(stuff)
         #define GROUP(stuff)
         #define END_GROUP()
-        #define HOOK(stuff) STFU_CLANG @interface stuff(hax) @end @implementation stuff (hax)
+        #define HOOK(stuff) STFU_CLANG @interface stuff(UNIQUE_SUFFIX(hax)) @end @implementation stuff (UNIQUE_SUFFIX(hax))
         #define HOOK_AND_DECLARE(stuff, superclass) STFU_CLANG @interface stuff : superclass @end @implementation stuff
         #define NEW(...)
         #define END() @end END_STFU_CLANG
         #define ORIG(...) nil
+        #define ORIG_T(...) 0
         #define GET_CLASS(stuff) objc_getClass(STRING(stuff))
         #define SUBCLASS(stuff, superclass) @interface stuff : superclass @end @implementation stuff
         #define END_SUBCLASS() @end
