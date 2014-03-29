@@ -17,7 +17,7 @@
         #define END_GROUP() %end
         #define HOOK(stuff) %hook stuff
         #define HOOK_AND_DECLARE(stuff, superclass) %hook stuff
-        #define NEW() %new
+        #define NEW(...)  %new
         #define END() %end
         #define ORIG(...) %orig(__VA_ARGS__)
         #define GET_CLASS(stuff) %c(stuff)
@@ -36,7 +36,7 @@
         #define END_GROUP()
         #define HOOK(stuff) STFU_CLANG @interface stuff(hax) @end @implementation stuff (hax)
         #define HOOK_AND_DECLARE(stuff, superclass) STFU_CLANG @interface stuff : superclass @end @implementation stuff
-        #define NEW()
+        #define NEW(...)
         #define END() @end END_STFU_CLANG
         #define ORIG(...) nil
         #define GET_CLASS(stuff) objc_getClass(STRING(stuff))
