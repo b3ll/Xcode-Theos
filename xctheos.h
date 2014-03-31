@@ -12,7 +12,7 @@
 
     #define _CONCAT(stuff, otherstuff) stuff ## otherstuff
     #define CONCAT(stuff, otherstuff) _CONCAT(stuff, otherstuff)
-    #define UNIQUE_SUFFIX(stuff) CONCAT(stuff, __LINE__)
+    #define UNIQUE_SUFFIX(stuff) CONCAT(stuff, __COUNTER__)
 
     #ifdef __LOGOS_H
         #define CONFIG(stuff) %config(stuff)
