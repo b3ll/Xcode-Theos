@@ -43,9 +43,9 @@ END()
 
 END_GROUP()
 
-CTOR() {
+CTOR({
     INIT(stuff)
-}
+})
 ```
 
 In Xcode, you'll want to create a static library as a target, set your Tweak.xmi file as something to compile. In addition you'll want to (in the inspector) set its file type to Objective-C++.
